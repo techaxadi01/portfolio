@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getPortfolioEducation, getPortfolioProfile, slugify } from "../../../lib/profile";
 
 export async function generateStaticParams() {
@@ -15,6 +15,10 @@ export default async function EducationDetailPage({ params }) {
 
   if (!item) {
     notFound();
+  }
+
+  if (/^\d+$/.test(params.slug)) {
+    redirect(`/education/${slugify(item.degree)}`);
   }
 
   return (

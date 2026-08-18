@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getPortfolioProfile, getPortfolioProject, slugify } from "../../../lib/profile";
 
 export async function generateStaticParams() {
@@ -15,6 +15,10 @@ export default async function ProjectDetailPage({ params }) {
 
   if (!project) {
     notFound();
+  }
+
+  if (/^\d+$/.test(params.slug)) {
+    redirect(`/projects/${slugify(project.name)}`);
   }
 
   return (
