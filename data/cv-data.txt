@@ -22,6 +22,7 @@
   ],
   "education": [
     {
+      "id": 1,
       "degree": "MCA",
       "institution": "Christ Deemed to be University, Bengaluru",
       "period": "2028",
@@ -29,6 +30,7 @@
       "notes": "Postgraduate program focused on advanced computer applications."
     },
     {
+      "id": 2,
       "degree": "BSc (PCM)",
       "institution": "Government Nagarjuna Post Graduate College of Science, Raipur",
       "period": "2025",
@@ -36,6 +38,7 @@
       "notes": "Bachelor's degree in Physics, Chemistry, and Mathematics."
     },
     {
+      "id": 3,
       "degree": "DCA",
       "institution": "Government Nagarjuna Post Graduate College of Science, Raipur",
       "period": "2023",
@@ -43,6 +46,7 @@
       "notes": "Practical foundation in computer applications and office productivity tools."
     },
     {
+      "id": 4,
       "degree": "12th",
       "institution": "Kendriya Vidyalaya No.2, Raipur",
       "period": "2022",
@@ -50,6 +54,7 @@
       "notes": "Higher secondary education."
     },
     {
+      "id": 5,
       "degree": "10th",
       "institution": "Kendriya Vidyalaya No.2, Raipur",
       "period": "2020",
@@ -71,24 +76,28 @@
   ],
   "projects": [
     {
+      "id": 1,
       "name": "CIA-3-FSD",
       "url": "https://github.com/techaxadi01/CIA-3-FSD",
       "language": "JavaScript",
       "summary": "CIA 3"
     },
     {
+      "id": 2,
       "name": "EduFlow_MERN",
       "url": "https://github.com/techaxadi01/EduFlow_MERN",
       "language": "JavaScript",
       "summary": "My Final Project for all Students"
     },
     {
+      "id": 3,
       "name": "Food-Ordering-System",
       "url": "https://github.com/techaxadi01/Food-Ordering-System",
       "language": "JavaScript",
       "summary": "class activity"
     },
     {
+      "id": 4,
       "name": "Login",
       "url": "https://github.com/techaxadi01/Login",
       "language": "HTML",

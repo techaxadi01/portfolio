@@ -1,4 +1,5 @@
 import ClientProfileCard from "../../components/client-profile-card";
+import Link from "next/link";
 import { getPortfolioProfile } from "../../lib/profile";
 
 export const dynamic = "force-dynamic";
@@ -26,11 +27,9 @@ export default async function ProjectsPage() {
           </h2>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {profile.projects.map((project) => (
-              <a
+              <Link
                 key={project.name}
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
+                href={`/projects/${project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`}
                 className="rounded-lg border border-slate-200 p-4 transition hover:border-slate-300 hover:bg-slate-50"
               >
                 <h3 className="text-base font-semibold text-slate-950">{project.name}</h3>
@@ -38,7 +37,7 @@ export default async function ProjectsPage() {
                 <p className="mt-3 text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
                   {project.language}
                 </p>
-              </a>
+              </Link>
             ))}
           </div>
         </article>
