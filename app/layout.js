@@ -1,14 +1,20 @@
 import "./globals.css";
+import SiteNav from "../components/site-nav";
 
 export const metadata = {
-  title: "Curriculum Vitae",
-  description: "Next.js CV for Lab 9 and Lab 10"
+  title: "Aditya Kumar | Portfolio",
+  description: "Next.js portfolio for lab 9 and lab 10"
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="min-h-screen">
+          <SiteNav />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
