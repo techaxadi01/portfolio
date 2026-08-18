@@ -1,0 +1,9 @@
+{
+  "fullName": "Your Name",
+  "role": "Next.js Developer",
+  "location": "Your City, Your Country",
+  "email": "your.email@example.com",
+  "github": "https://github.com/your-handle",
+  "linkedin": "https://www.linkedin.com/in/your-handle",
+  "intro": "Built to demonstrate SSR, CSR, and a mobile-first Tailwind layout for Lab 9 and Lab 10."
+}

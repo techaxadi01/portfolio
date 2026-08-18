@@ -1,0 +1,14 @@
+codex resume 01a01028-af77-73e2-add0-8d9325522acc
+
+
+
+i have a project to be made in next.js in which i have to make my portfolio and it should cover lab 9 and 10
+
+lab 9: Implement server-side rendering and client-side rendering in Next.js. Display data fetched from an API using both methods.
+lab 10: Use Tailwind CSS with Next.js to create a mobile - first, responsive webpage layout.
+
+apart from this if needed use atlas (mongo db) for db and rest api and keep server and ui element sepetatre
+
+and use env file or mongo db  for storing my info whichever is better but for now use place holders
+
+and later make a python file or anyother file (which is better) to replace the placeholders
