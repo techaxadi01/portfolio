@@ -1,5 +1,7 @@
 # Personal Portfolio
 
+🚀 **Live Demo:** [https://portfolio-five-dun-k4xxlhwg8g.vercel.app/](https://portfolio-five-dun-k4xxlhwg8g.vercel.app/)
+
 A personal portfolio website built with Next.js (App Router) and Tailwind CSS. Features dynamic server-side data fetching, client components, and simple profile updates via script.
 
 ## Tech Stack
