@@ -17,6 +17,7 @@ export interface EducationItem {
   period: string;
   marks: string;
   notes: string;
+  website?: string;
 }
 
 export interface ExperienceItem {

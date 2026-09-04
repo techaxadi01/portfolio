@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPortfolioProfile } from "@/lib/profile";
-import { MailIcon, GithubIcon, LinkedinIcon, LocationIcon } from "@/components/icons";
+import { MailIcon, GithubIcon, LinkedinIcon, LocationIcon, ExternalLinkIcon } from "@/components/icons";
 import PrintButton from "./print-button";
 
 export const dynamic = "force-dynamic";
@@ -105,7 +105,21 @@ export default async function ResumePage() {
                   <h4 className="text-base font-bold text-white">{item.degree}</h4>
                   <span className="font-mono text-xs text-[#00e676]">{item.period}</span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#58a6ff] mt-0.5">{item.institution}</p>
+                <p className="text-xs sm:text-sm text-[#58a6ff] mt-0.5">
+                  {item.website ? (
+                    <a
+                      href={item.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline hover:text-[#00e676] inline-flex items-center gap-1 transition-colors"
+                    >
+                      {item.institution}
+                      <ExternalLinkIcon className="h-3 w-3 no-print" />
+                    </a>
+                  ) : (
+                    item.institution
+                  )}
+                </p>
                 <p className="text-xs font-mono text-[#8b949e] mt-1">Result: {item.marks}</p>
                 <p className="text-xs text-[#8b949e] mt-1.5 leading-relaxed">{item.notes}</p>
               </div>

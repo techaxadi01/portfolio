@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPortfolioEducation, getPortfolioProfile, slugify } from "@/lib/profile";
-import { ArrowLeftIcon, AcademicCapIcon } from "@/components/icons";
+import { ArrowLeftIcon, AcademicCapIcon, ExternalLinkIcon } from "@/components/icons";
 
 interface PageProps {
   params: {
@@ -84,7 +84,19 @@ export default async function EducationDetailPage({ params }: PageProps) {
                 {item.degree}
               </h1>
               <p className="text-base text-[#58a6ff] font-medium mt-0.5">
-                {item.institution}
+                {item.website ? (
+                  <a
+                    href={item.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline hover:text-[#00e676] inline-flex items-center gap-1.5 transition-colors"
+                  >
+                    {item.institution}
+                    <ExternalLinkIcon className="h-3.5 w-3.5" />
+                  </a>
+                ) : (
+                  item.institution
+                )}
               </p>
             </div>
           </div>

@@ -241,7 +241,21 @@ export default async function Home() {
                       </h4>
                       <span className="tag text-[11px] py-0.5 px-2">{item.marks}</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-[#58a6ff] mt-1">{item.institution}</p>
+                    <p className="text-xs sm:text-sm text-[#58a6ff] mt-1">
+                      {item.website ? (
+                        <a
+                          href={item.website}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:underline hover:text-[#00e676] inline-flex items-center gap-1 transition-colors"
+                        >
+                          {item.institution}
+                          <ExternalLinkIcon className="h-3 w-3" />
+                        </a>
+                      ) : (
+                        item.institution
+                      )}
+                    </p>
                     <div className="flex items-center gap-3 mt-2 text-xs font-mono text-[#6e7681]">
                       <span>{item.period}</span>
                       <span>&bull;</span>

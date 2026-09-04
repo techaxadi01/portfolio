@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPortfolioProfile, slugify } from "@/lib/profile";
-import { AcademicCapIcon, ArrowRightIcon } from "@/components/icons";
+import { AcademicCapIcon, ArrowRightIcon, ExternalLinkIcon } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 
@@ -61,7 +61,19 @@ export default async function EducationPage() {
                 </h2>
 
                 <p className="text-sm font-medium text-[#58a6ff] mt-1.5">
-                  {item.institution}
+                  {item.website ? (
+                    <a
+                      href={item.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline hover:text-[#00e676] inline-flex items-center gap-1 transition-colors"
+                    >
+                      {item.institution}
+                      <ExternalLinkIcon className="h-3 w-3" />
+                    </a>
+                  ) : (
+                    item.institution
+                  )}
                 </p>
 
                 <div className="mt-3 inline-block rounded-md border border-[#30363d] bg-[#161b22] px-3 py-1 text-xs font-mono text-[#00e676]">

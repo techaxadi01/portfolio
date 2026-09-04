@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPortfolioProfile, slugify } from "@/lib/profile";
-import { AcademicCapIcon, TrophyIcon, LocationIcon, MailIcon, ArrowRightIcon } from "@/components/icons";
+import { AcademicCapIcon, TrophyIcon, LocationIcon, MailIcon, ArrowRightIcon, ExternalLinkIcon } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 
@@ -180,7 +180,21 @@ export default async function AboutPage() {
                       </h3>
                       <span className="font-mono text-xs text-[#00e676]">{item.marks}</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-[#8b949e] mt-1">{item.institution}</p>
+                    <p className="text-xs sm:text-sm text-[#8b949e] mt-1">
+                      {item.website ? (
+                        <a
+                          href={item.website}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:underline hover:text-[#00e676] inline-flex items-center gap-1 transition-colors"
+                        >
+                          {item.institution}
+                          <ExternalLinkIcon className="h-3 w-3" />
+                        </a>
+                      ) : (
+                        item.institution
+                      )}
+                    </p>
                     <p className="text-xs text-[#6e7681] mt-1">{item.notes}</p>
                     <div className="flex items-center gap-2 font-mono text-[11px] text-[#6e7681] mt-2">
                       <Link href={`/education/${eduSlug}`} className="text-[#58a6ff] hover:underline">

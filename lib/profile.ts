@@ -32,6 +32,7 @@ const fallbackProfile: Profile = {
       id: 1,
       degree: "MCA",
       institution: "Christ Deemed to be University, Bengaluru",
+      website: "https://christuniversity.in",
       period: "2028",
       marks: "Ongoing",
       notes: "Postgraduate program focused on advanced computer applications."
@@ -40,6 +41,7 @@ const fallbackProfile: Profile = {
       id: 2,
       degree: "BSc (PCM)",
       institution: "Government Nagarjuna Post Graduate College of Science, Raipur",
+      website: "https://www.gnscr.ac.in",
       period: "2025",
       marks: "8.08 CGPA",
       notes: "Bachelor's degree in Physics, Chemistry, and Mathematics."
@@ -48,6 +50,7 @@ const fallbackProfile: Profile = {
       id: 3,
       degree: "DCA",
       institution: "Government Nagarjuna Post Graduate College of Science, Raipur",
+      website: "https://www.gnscr.ac.in",
       period: "2023",
       marks: "64.25%",
       notes: "Practical foundation in computer applications and office productivity tools."
@@ -56,6 +59,7 @@ const fallbackProfile: Profile = {
       id: 4,
       degree: "12th",
       institution: "Kendriya Vidyalaya No.2, Raipur",
+      website: "https://no2raipur.kvs.ac.in",
       period: "2022",
       marks: "88.6%",
       notes: "Higher secondary education."
@@ -64,6 +68,7 @@ const fallbackProfile: Profile = {
       id: 5,
       degree: "10th",
       institution: "Kendriya Vidyalaya No.2, Raipur",
+      website: "https://no2raipur.kvs.ac.in",
       period: "2020",
       marks: "91.0%",
       notes: "Secondary education."
