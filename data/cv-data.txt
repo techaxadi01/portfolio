@@ -7,7 +7,7 @@
   "github": "https://github.com/techaxadi01",
   "linkedin": "https://www.linkedin.com/in/aditya-kumar-aa677b3a6/",
   "intro": "Next.js developer focused on server rendering, client rendering, and responsive UI work.",
-  "summary": "Entry-level developer portfolio with a focus on Next.js, REST APIs, and mobile-first Tailwind layouts.",
+  "summary": "Entry-level developer portfolio with a focus on Next.js, REST APIs, and modern responsive full-stack applications.",
   "experience": [
     {
       "role": "NCC Senior Division",
@@ -77,31 +77,59 @@
   "projects": [
     {
       "id": 1,
-      "name": "CIA-3-FSD",
-      "url": "https://github.com/techaxadi01/CIA-3-FSD",
+      "name": "EduFlow",
+      "url": "https://github.com/techaxadi01/EduFlow",
       "language": "JavaScript",
-      "summary": "CIA 3"
+      "summary": "A full-stack MERN student platform with assignment tracking, an ambient focus timer, and Peer Radar for campus study sessions."
     },
     {
       "id": 2,
-      "name": "EduFlow_MERN",
-      "url": "https://github.com/techaxadi01/EduFlow_MERN",
-      "language": "JavaScript",
-      "summary": "My Final Project for all Students"
+      "name": "portfolio",
+      "url": "https://github.com/techaxadi01/portfolio",
+      "language": "TypeScript",
+      "summary": "Personal portfolio website built with Next.js 14 App Router, TypeScript, and modern dark cyber aesthetic."
     },
     {
       "id": 3,
-      "name": "Food-Ordering-System",
-      "url": "https://github.com/techaxadi01/Food-Ordering-System",
+      "name": "MCA-FSD-ETE",
+      "url": "https://github.com/techaxadi01/MCA-FSD-ETE",
       "language": "JavaScript",
-      "summary": "class activity"
+      "summary": "Full-stack web app for submitting, tracking, and collaborating on campus innovation ideas."
     },
     {
       "id": 4,
-      "name": "Login",
-      "url": "https://github.com/techaxadi01/Login",
-      "language": "HTML",
-      "summary": "Lab 4 Login Page with Express and Node JS"
+      "name": "UPSC-Registration-Information-System",
+      "url": "https://github.com/techaxadi01/UPSC-Registration-Information-System",
+      "language": "Python",
+      "summary": "Python CLI application for managing UPSC candidate registrations, user accounts, and activity logs using MongoDB."
+    },
+    {
+      "id": 5,
+      "name": "MCA-C-Lab-CIA",
+      "url": "https://github.com/techaxadi01/MCA-C-Lab-CIA",
+      "language": "C",
+      "summary": "Collection of C programming laboratory practicals, data structures exercises, and CIA assignments for MCA."
+    },
+    {
+      "id": 6,
+      "name": "FSD_Act-Food-Ordering-System",
+      "url": "https://github.com/techaxadi01/FSD_Act-Food-Ordering-System",
+      "language": "JavaScript",
+      "summary": "A full-stack food ordering web application built with React, Express, and SQLite."
+    },
+    {
+      "id": 7,
+      "name": "FSD_Act-Student-Attendance-Application",
+      "url": "https://github.com/techaxadi01/FSD_Act-Student-Attendance-Application",
+      "language": "JavaScript",
+      "summary": "A comparison of a Student Attendance Tracker built using HTML vs React.js."
+    },
+    {
+      "id": 8,
+      "name": "FSD_Act-Pet-Adoption",
+      "url": "https://github.com/techaxadi01/FSD_Act-Pet-Adoption",
+      "language": "JavaScript",
+      "summary": "Pet adoption card manager built with React, Tailwind CSS, and in-browser SQLite."
     }
   ],
   "skills": [

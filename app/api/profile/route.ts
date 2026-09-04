@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getPortfolioProfile } from "../../../lib/profile";
+import { getPortfolioProfile } from "@/lib/profile";
 
 export const dynamic = "force-dynamic";
 
