@@ -22,7 +22,7 @@ export default async function Home() {
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00e676]/30 bg-[#00e676]/10 px-3.5 py-1.5 text-xs font-mono text-[#00e676] mb-6">
               <span className="live-dot" />
-              <span>Available for Opportunities &bull; MCA @ Christ</span>
+              <span>Available for Opportunities &bull; {profile.education[0] ? `${profile.education[0].degree} @ ${profile.education[0].institution.split(",")[0]}` : profile.role}</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
@@ -109,23 +109,37 @@ export default async function Home() {
       {/* Quick Stats Grid */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="glass-card p-5 text-center">
-          <p className="font-mono text-3xl font-bold text-[#00e676]">2028</p>
-          <p className="text-xs font-medium text-[#8b949e] mt-1">MCA Graduation Year</p>
+          <p className="font-mono text-3xl font-bold text-[#00e676]">
+            {profile.education[0]?.period ?? "Present"}
+          </p>
+          <p className="text-xs font-medium text-[#8b949e] mt-1">
+            {profile.education[0]?.degree ?? "Degree"} Graduation Year
+          </p>
         </div>
         <div className="glass-card p-5 text-center">
           <p className="font-mono text-3xl font-bold text-[#58a6ff]">{profile.projects.length}</p>
           <p className="text-xs font-medium text-[#8b949e] mt-1">Featured Projects</p>
         </div>
         <div className="glass-card p-5 text-center">
-          <p className="font-mono text-3xl font-bold text-[#bc8cff]">8.08</p>
-          <p className="text-xs font-medium text-[#8b949e] mt-1">BSc (PCM) CGPA</p>
+          <p className="font-mono text-3xl font-bold text-[#bc8cff]">
+            {profile.education[1]?.marks ?? profile.education[0]?.marks ?? "Active"}
+          </p>
+          <p className="text-xs font-medium text-[#8b949e] mt-1">
+            {profile.education[1]?.degree ?? profile.education[0]?.degree ?? "Academic"} Result
+          </p>
         </div>
         <div className="glass-card p-5 text-center flex flex-col justify-center">
           <p className="font-mono text-xl sm:text-2xl font-bold text-[#00e676] leading-snug">
-            NCC
-            <span className="block text-xs sm:text-sm font-semibold mt-0.5">&apos;C Certificate&apos;</span>
+            {profile.certifications[0]?.name.split("-")[0]?.trim() ?? "Credentials"}
+            {profile.certifications[0]?.grade && (
+              <span className="block text-xs sm:text-sm font-semibold mt-0.5">
+                Grade &apos;{profile.certifications[0].grade}&apos;
+              </span>
+            )}
           </p>
-          <p className="text-xs font-medium text-[#8b949e] mt-1">Senior Division Cert</p>
+          <p className="text-xs font-medium text-[#8b949e] mt-1">
+            {profile.certifications.length} Awarded Credential{profile.certifications.length === 1 ? "" : "s"}
+          </p>
         </div>
       </section>
 

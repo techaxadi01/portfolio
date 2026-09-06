@@ -5,10 +5,13 @@ import { AcademicCapIcon, ArrowRightIcon, ExternalLinkIcon } from "@/components/
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Education | Aditya Kumar",
-  description: "Academic qualifications, degrees, marks, and educational milestones of Aditya Kumar."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
+  return {
+    title: `Education | ${profile.fullName}`,
+    description: `Academic qualifications, degrees, marks, and educational milestones of ${profile.fullName}.`
+  };
+}
 
 export default async function EducationPage() {
   const profile = await getPortfolioProfile();
@@ -30,7 +33,7 @@ export default async function EducationPage() {
           </h1>
 
           <p className="mt-4 text-base text-[#8b949e] leading-relaxed">
-            A comprehensive record of formal academic degrees, postgraduate computer application studies at Christ Deemed to be University, and continuous science foundations. Each degree is accessible via both slug and numeric index routing.
+            A comprehensive record of formal academic degrees, qualifications{profile.education[0] ? ` at ${profile.education[0].institution}` : ""}, and continuous technical foundations. Each degree is accessible via both slug and numeric index routing.
           </p>
         </div>
       </section>

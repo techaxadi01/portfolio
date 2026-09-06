@@ -5,10 +5,13 @@ import ContactForm from "./contact-form";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Contact | Aditya Kumar",
-  description: "Connect with Aditya Kumar for software engineering roles, full-stack projects, and collaborations."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
+  return {
+    title: `Contact | ${profile.fullName}`,
+    description: `Connect with ${profile.fullName} for software engineering roles, full-stack projects, and collaborations.`
+  };
+}
 
 export default async function ContactPage() {
   const profile = await getPortfolioProfile();
@@ -66,7 +69,7 @@ export default async function ContactPage() {
               <div className="rounded-xl border border-[#30363d] bg-[#161b22]/70 p-4">
                 <span className="text-xs font-mono text-[#6e7681] block">Affiliation</span>
                 <span className="text-sm font-medium text-[#e6edf3] mt-1 block">
-                  Christ Deemed to be University, Bengaluru
+                  {profile.education[0]?.institution || profile.role}
                 </span>
               </div>
             </div>
@@ -107,7 +110,7 @@ export default async function ContactPage() {
 
         {/* Interactive Form (3 cols) */}
         <div className="lg:col-span-3">
-          <ContactForm email={profile.email} />
+          <ContactForm email={profile.email} recipientName={profile.fullName.split(" ")[0]} />
         </div>
       </div>
     </div>

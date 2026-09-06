@@ -22,7 +22,15 @@ const navLinks: NavLink[] = [
   { href: "/contact", label: "Contact" }
 ];
 
-export default function SiteNav() {
+interface SiteNavProps {
+  fullName?: string;
+  role?: string;
+}
+
+export default function SiteNav({
+  fullName = "Aditya Kumar",
+  role = "MCA • Next.js Dev"
+}: SiteNavProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -41,7 +49,7 @@ export default function SiteNav() {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#30363d] bg-[#161b22] group-hover:border-[#00e676] group-hover:shadow-[0_0_12px_rgba(0,230,118,0.3)] transition-all overflow-hidden p-1">
             <Image
               src="/logo.svg"
-              alt="Aditya Kumar Logo"
+              alt={`${fullName} Logo`}
               width={28}
               height={28}
               className="h-full w-full object-contain rounded"
@@ -49,10 +57,10 @@ export default function SiteNav() {
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-bold tracking-tight text-white group-hover:text-[#00e676] transition-colors">
-              Aditya Kumar
+              {fullName}
             </span>
             <span className="text-[11px] font-mono text-[#8b949e]">
-              MCA &bull; Next.js Dev
+              {role}
             </span>
           </div>
         </Link>

@@ -5,10 +5,13 @@ import { TrophyIcon, ArrowRightIcon } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Achievements | Aditya Kumar",
-  description: "National Cadet Corps (NCC) senior division certifications, awards, and credentials of Aditya Kumar."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
+  return {
+    title: `Achievements | ${profile.fullName}`,
+    description: `Certifications, awards, and credentials of ${profile.fullName}.`
+  };
+}
 
 export default async function AchievementsPage() {
   const profile = await getPortfolioProfile();
@@ -44,8 +47,10 @@ export default async function AchievementsPage() {
               <TrophyIcon className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white">NCC Senior Division Experience</h2>
-              <span className="text-xs font-mono text-[#8b949e]">National Cadet Corps &bull; Raipur</span>
+              <h2 className="text-xl font-bold text-white">Experience &amp; Leadership</h2>
+              <span className="text-xs font-mono text-[#8b949e]">
+                {profile.experience[0] ? `${profile.experience[0].organization} • ${profile.experience[0].location}` : "Leadership & Service"}
+              </span>
             </div>
           </div>
 
@@ -127,7 +132,7 @@ export default async function AchievementsPage() {
               <ArrowRightIcon className="h-3.5 w-3.5" />
             </Link>
             <Link href="/contact" className="btn-outline text-xs">
-              Contact Aditya
+              Contact {profile.fullName.split(" ")[0]}
             </Link>
           </div>
         </section>

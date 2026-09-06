@@ -5,10 +5,13 @@ import { AcademicCapIcon, TrophyIcon, LocationIcon, MailIcon, ArrowRightIcon, Ex
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "About | Aditya Kumar",
-  description: "Learn more about Aditya Kumar, MCA student at Christ University, background, education, and development focus."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
+  return {
+    title: `About | ${profile.fullName}`,
+    description: `Learn more about ${profile.fullName}, ${profile.role}, background, education, and development focus.`
+  };
+}
 
 export default async function AboutPage() {
   const profile = await getPortfolioProfile();
@@ -33,7 +36,7 @@ export default async function AboutPage() {
           </p>
 
           <p className="mt-3 text-sm text-[#8b949e] leading-relaxed">
-            {profile.summary} Currently pursuing Master of Computer Applications (MCA) at Christ Deemed to be University, Bengaluru, bridging computer science fundamentals with modern production-grade Next.js, React, and REST API architectures.
+            {profile.summary} {profile.education[0] ? `Currently pursuing ${profile.education[0].degree} at ${profile.education[0].institution}, bridging academic fundamentals with modern production-grade Next.js, React, and full-stack software architectures.` : ""}
           </p>
         </div>
       </section>

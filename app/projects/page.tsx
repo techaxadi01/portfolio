@@ -6,10 +6,13 @@ import { CodeIcon } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Projects | Aditya Kumar",
-  description: "Browse GitHub repositories, full-stack web applications, and lab projects built by Aditya Kumar."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
+  return {
+    title: `Projects | ${profile.fullName}`,
+    description: `Browse GitHub repositories, full-stack web applications, and lab projects built by ${profile.fullName}.`
+  };
+}
 
 export default async function ProjectsPage() {
   const profile = await getPortfolioProfile();
@@ -31,7 +34,7 @@ export default async function ProjectsPage() {
           </h1>
 
           <p className="mt-4 text-base text-[#8b949e] leading-relaxed">
-            Full-stack deliverables, MERN applications, and interactive web tools created as part of Christ University coursework and personal engineering experiments. Each project supports dual routing by both slug name and numeric index.
+            Full-stack deliverables, applications, and interactive tools built across academic coursework and personal software engineering experiments. Each project supports dual routing by both slug name and numeric index.
           </p>
         </div>
       </section>

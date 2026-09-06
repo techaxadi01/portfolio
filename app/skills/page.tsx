@@ -5,10 +5,13 @@ import { CodeIcon, ExternalLinkIcon } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Skills | Aditya Kumar",
-  description: "Technical stack, tools, languages, and frameworks mastered by Aditya Kumar."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
+  return {
+    title: `Skills | ${profile.fullName}`,
+    description: `Technical stack, tools, languages, and frameworks mastered by ${profile.fullName}.`
+  };
+}
 
 interface SkillCategory {
   title: string;
@@ -101,12 +104,16 @@ export default async function SkillsPage() {
         {
           name: "Leadership & Discipline",
           level: "Certified",
-          note: "National Cadet Corps (NCC) Senior Division — Grade A (B Cert), Grade B (C Cert)"
+          note: profile.certifications.length > 0
+            ? profile.certifications.map((c) => `${c.name} (Grade ${c.grade})`).join(", ")
+            : "Disciplined execution, peer leadership, and proactive accountability."
         },
         {
           name: "Academic Computer Science",
-          level: "Ongoing (MCA)",
-          note: "Christ University curriculum: advanced data structures, software engineering"
+          level: profile.education[0]?.degree ? `Ongoing (${profile.education[0].degree})` : "Coursework",
+          note: profile.education[0]
+            ? `${profile.education[0].institution}: ${profile.education[0].notes}`
+            : "Advanced data structures, computer networks, and software engineering principles."
         }
       ]
     }

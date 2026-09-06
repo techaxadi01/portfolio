@@ -2,43 +2,44 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SiteNav from "@/components/site-nav";
 import Footer from "@/components/footer";
+import { getPortfolioProfile } from "@/lib/profile";
 
-export const metadata: Metadata = {
-  title: "Aditya Kumar | MCA Student & Next.js Developer",
-  description:
-    "Portfolio of Aditya Kumar - MCA Student at Christ Deemed to be University, Bengaluru. Specializing in Next.js App Router, TypeScript, React, and full-stack web applications.",
-  keywords: [
-    "Aditya Kumar",
-    "Portfolio",
-    "Next.js Developer",
-    "MCA Student",
-    "Christ University",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Full Stack Developer"
-  ],
-  authors: [{ name: "Aditya Kumar" }],
-  creator: "Aditya Kumar",
-  openGraph: {
-    title: "Aditya Kumar | MCA Student & Next.js Developer",
-    description:
-      "Modern Next.js developer portfolio featuring dynamic routing, clean dark UI, and academic & project highlights.",
-    type: "website",
-    locale: "en_US"
-  },
-  icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg"
-  }
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
 
-export default function RootLayout({
+  return {
+    title: `${profile.fullName} | ${profile.role}`,
+    description: profile.summary || profile.intro,
+    keywords: [
+      profile.fullName,
+      "Portfolio",
+      profile.role,
+      ...profile.education.map((e) => e.institution),
+      ...profile.skills
+    ],
+    authors: [{ name: profile.fullName }],
+    creator: profile.fullName,
+    openGraph: {
+      title: `${profile.fullName} | ${profile.role}`,
+      description: profile.intro || profile.summary,
+      type: "website",
+      locale: "en_US"
+    },
+    icons: {
+      icon: "/logo.svg",
+      shortcut: "/logo.svg",
+      apple: "/logo.svg"
+    }
+  };
+}
+
+export default async function RootLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
+  const profile = await getPortfolioProfile();
+
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className="min-h-screen bg-[#0d1117] text-[#e6edf3] antialiased selection:bg-[#00e676]/20 selection:text-white">
@@ -47,7 +48,7 @@ export default function RootLayout({
         <div className="fixed inset-0 grid-bg pointer-events-none z-0 opacity-80" />
 
         <div className="relative z-10 flex min-h-screen flex-col justify-between">
-          <SiteNav />
+          <SiteNav fullName={profile.fullName} role={profile.role} />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>

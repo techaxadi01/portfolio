@@ -6,10 +6,13 @@ import PrintButton from "./print-button";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Resume | Aditya Kumar",
-  description: "Curriculum Vitae and professional resume of Aditya Kumar - MCA Student & Next.js Developer."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getPortfolioProfile();
+  return {
+    title: `Resume | ${profile.fullName}`,
+    description: `Curriculum Vitae and professional resume of ${profile.fullName} - ${profile.role}.`
+  };
+}
 
 export default async function ResumePage() {
   const profile = await getPortfolioProfile();
@@ -21,7 +24,7 @@ export default async function ResumePage() {
         <div>
           <h1 className="text-xl font-bold text-white">Curriculum Vitae</h1>
           <p className="text-xs text-[#8b949e] mt-0.5">
-            Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} &bull; MCA Student @ Christ University
+            Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} &bull; {profile.role}
           </p>
         </div>
         <PrintButton />
@@ -60,7 +63,7 @@ export default async function ResumePage() {
                 className="hover:text-[#00e676] transition-colors flex items-center gap-2"
               >
                 <GithubIcon className="h-3.5 w-3.5" />
-                github.com/techaxadi01
+                {profile.github.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
               </a>
               <a
                 href={profile.linkedin}
@@ -69,7 +72,7 @@ export default async function ResumePage() {
                 className="hover:text-[#00e676] transition-colors flex items-center gap-2"
               >
                 <LinkedinIcon className="h-3.5 w-3.5" />
-                linkedin.com/in/aditya-kumar-aa677b3a6
+                {profile.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
               </a>
             </div>
           </div>

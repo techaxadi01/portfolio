@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface ContactFormProps {
   email: string;
+  recipientName?: string;
 }
 
-export default function ContactForm({ email }: ContactFormProps) {
+export default function ContactForm({ email, recipientName = "there" }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     senderEmail: "",
@@ -51,7 +52,7 @@ export default function ContactForm({ email }: ContactFormProps) {
           <div className="pt-2">
             <a
               href={`mailto:${email}?subject=${encodeURIComponent(formData.subject || "Portfolio Contact")}&body=${encodeURIComponent(
-                `Hi Aditya,\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.senderEmail})`
+                `Hi ${recipientName},\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.senderEmail})`
               )}`}
               className="btn-accent text-xs inline-block"
             >

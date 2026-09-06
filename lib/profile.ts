@@ -12,7 +12,7 @@ const fallbackProfile: Profile = {
   location: "Bengaluru, Karnataka",
   email: "rkadityaav1212@gmail.com",
   github: "https://github.com/techaxadi01",
-  linkedin: "https://www.linkedin.com/in/aditya-kumar-aa677b3a6/",
+  linkedin: "https://www.linkedin.com/in/techaxadi/",
   intro: "Next.js developer focused on server rendering, client rendering, and responsive UI work.",
   summary: "Entry-level developer portfolio with a focus on Next.js, REST APIs, and mobile-first responsive layouts.",
   experience: [
