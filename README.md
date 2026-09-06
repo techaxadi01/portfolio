@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-🚀 **Live Demo:** [https://portfolio-five-dun-k4xxlhwg8g.vercel.app/](https://portfolio-five-dun-k4xxlhwg8g.vercel.app/)
+🚀 **Live Demo:** [https://portfolio-techax-adi.vercel.app/](https://portfolio-techax-adi.vercel.app/)
 
 A modern, high-performance personal developer portfolio built with Next.js 14 App Router, TypeScript, and Tailwind CSS, featuring a sleek dark cyber aesthetic, glassmorphism, dual dynamic routing, and interactive project filtering.
 
